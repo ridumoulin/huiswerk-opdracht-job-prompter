@@ -72,3 +72,62 @@ const departments = {
 }
 
 console.log(departments);
+console.log("De afdeling Sales heeft" + departments["sales"].numberOfEmployees + " medewerkers");
+console.log("Marketing is een leuke afdeling om te werken. " + departments["marketing"].description);
+console.log("De afdeling Customer Service heeft " + departments["customer-service"].numberOfEmployees + " medewerkers");
+console.log("Sales is een uitdagende afdeling om te werken als Verkoopmanager. " + departments.sales.jobs[1].description);
+
+const userInput = prompt("Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]");
+console.log(userInput);
+
+
+if (userInput === "marketing") {
+    console.log("Marketing" + " is een leuke afdeling om te werken. Er werken op dit moment " + departments.marketing.numberOfEmployees + " medewerkers.");
+} else if (userInput === "sales") {
+    console.log("Sales" + " is een leuke afdeling om te werken. Er werken op dit moment [aantal] " + departments.sales.numberOfEmployees + " medewerkers.");
+} else if (userInput === "customer-service") {
+    console.log("Customer-service" + " is een leuke afdeling om te werken. Er werken op dit moment " + departments["customer-service"].numberOfEmployees + " medewerkers.");
+} else {
+    console.error("Er is geen geldige keuze doorgegeven")
+}
+
+
+
+const userInputTitle = prompt("Je koos " + userInput + "Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in. \n" +
+    "0: " + departments[userInput].jobs[0].title + "\n" +
+    "1: " + departments[userInput].jobs[1].title + "\n" +
+    "2: " + departments[userInput].jobs[2].title + "\n" +
+    "3: " + departments[userInput].jobs[3].title);
+    console.log(userInputTitle);
+
+
+let title = "";
+let description = "";
+
+switch (userInputTitle) {
+    case "0":
+        title = departments[userInput].jobs[0].title;
+        description = departments[userInput].jobs[0].description;
+        break;
+    case "1":
+        title = departments[userInput].jobs[1].title;
+        description = departments[userInput].jobs[1].description;
+        break;
+    case "2":
+        title = departments[userInput].jobs[2].title;
+        description = departments[userInput].jobs[2].description;
+        break;
+    case "3":
+        title = departments[userInput].jobs[3].title;
+        description = departments[userInput].jobs[3].description;
+        break;
+    default:
+        console.log("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen." );
+}
+
+if (title !== "") {
+    console.log("Je koos " + title + ". Een uitdagende rol! " + description);
+}
+
+
+
